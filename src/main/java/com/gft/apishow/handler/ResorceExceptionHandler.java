@@ -22,6 +22,7 @@ import com.gft.apishow.ServiceExceptions.CasaShowNaoEncontradaException;
 import com.gft.apishow.ServiceExceptions.EventoExistente;
 import com.gft.apishow.ServiceExceptions.EventoNaoEncontrado;
 import com.gft.apishow.ServiceExceptions.NenhumaVendaEncontrada;
+import com.gft.apishow.ServiceExceptions.UsuarioExistente;
 import com.gft.apishow.ServiceExceptions.UsuarioNaoEncontrado;
 import com.gft.apishow.domain.DetalhesError;
 
@@ -81,6 +82,19 @@ public class ResorceExceptionHandler {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
 	}
 	
+	@ExceptionHandler(UsuarioExistente.class)
+	public ResponseEntity<DetalhesError>HandleUsuarioUsuarioExistente(UsuarioExistente e, HttpServletRequest Request){
+		
+		
+		DetalhesError erro = new DetalhesError();
+		erro.setStatus(409l);
+		erro.setTitulo("Usuario ja existente");
+		erro.setMensagemDesenvolvedor("http://errors.apiShow.com/404");
+		erro.setTimestamp(System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
+	}
+	
+	
 	@ExceptionHandler(UsuarioNaoEncontrado.class)
 	public ResponseEntity<DetalhesError>HandleUsuarioNaoEncontrado(UsuarioNaoEncontrado e, HttpServletRequest Request){
 		
@@ -92,6 +106,7 @@ public class ResorceExceptionHandler {
 		erro.setTimestamp(System.currentTimeMillis());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
 	}
+	
 	
 	
 	@ExceptionHandler(InvalidFormatException.class)

@@ -6,4 +6,6 @@ import com.gft.apishow.domain.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
+	Usuario   findByUserName(String usuario);
+	
 }

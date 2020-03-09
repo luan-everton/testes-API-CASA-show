@@ -23,12 +23,20 @@ public class UsuarioServices {
 		
 	}
 	public Usuario salvar(Usuario usuario) {
-		if(usuario.getId() != null) {
+		 
+		Usuario nomeusuario = usuarioRepository.findByUserName(usuario.getUserName());
+		if(nomeusuario!= null) {
+			throw new UsuarioExistente("usuario já existente");
+		}
+		
+		if (usuario.getId() != null) {
+			Optional<Usuario> a = usuarioRepository.findById(usuario.getId());
 			
-		Optional<Usuario> a = usuarioRepository.findById(usuario.getId());
-		 if(a !=null) {
-			 throw new UsuarioExistente(" Usuario ja existente .");
-		 }
+			if (a.isPresent()) {
+				throw new UsuarioExistente(" usuario já existente");
+			
+			}
+			
 		}
 		return usuarioRepository.save(usuario);
 	}
