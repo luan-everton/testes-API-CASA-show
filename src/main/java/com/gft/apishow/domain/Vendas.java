@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.annotations.ApiModelProperty;
+
 
 
 @Entity
@@ -17,16 +19,19 @@ public class Vendas {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@ApiModelProperty(example="quantidade de ingressos")
 	@JsonProperty("quantidade")
 	@NotNull(message = "O campo quantidade de vendas é obrigatorio")
 	private Integer qtdVendas;
 	
+	@ApiModelProperty(example="id do usuario ")
 	@NotNull(message = "O campo usuario é obrigatorio")
 	@ManyToOne
 	@JoinColumn(name = "USUARIO_ID")
 	private Usuario usuario;
 	
-	
+	@ApiModelProperty(example="id do evento")
 	@NotNull(message = "O campo evento é obrigatorio")
 	@ManyToOne
 	@JoinColumn(name = "EVENTO_ID")

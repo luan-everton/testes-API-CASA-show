@@ -13,15 +13,18 @@ import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Casa {	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+	@ApiModelProperty(example="nome da casa de show")
 	@NotEmpty(message = "Nome da casa de show é obrigatorio")
 	private String nomeCasa;
 	
+	@ApiModelProperty(example="local da casa de show")
     @NotEmpty(message = "local é obrigatorio")
 	private String local;
 
