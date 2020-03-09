@@ -51,7 +51,7 @@ public class ResorceExceptionHandler {
 		
 		
 		DetalhesError erro = new DetalhesError();
-		erro.setStatus(40l);
+		erro.setStatus(409l);
 		erro.setTitulo("Casa de Show já existente");
 		erro.setMensagemDesenvolvedor("http://errors.apiShow.com/404");
 		erro.setTimestamp(System.currentTimeMillis());
@@ -62,7 +62,7 @@ public class ResorceExceptionHandler {
 		
 		
 		DetalhesError erro = new DetalhesError();
-		erro.setStatus(404l);
+		erro.setStatus(409l);
 		erro.setTitulo("Evento ja cadastrado");
 		erro.setMensagemDesenvolvedor("http://errors.apiShow.com/404");
 		erro.setTimestamp(System.currentTimeMillis());
@@ -103,7 +103,7 @@ public class ResorceExceptionHandler {
 		erro.setTitulo("Requisição invalida, preencha os campos de forma correta ");
 		erro.setMensagemDesenvolvedor("http://errors.apiShow.com/400");
 		erro.setTimestamp(System.currentTimeMillis());
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
 	}
 	
 	@ExceptionHandler(NenhumaVendaEncontrada.class)
