@@ -1,6 +1,5 @@
 package com.gft.apishow.config;
 
-/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,4 +29,3 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 
 }
-*/
