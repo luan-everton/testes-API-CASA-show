@@ -31,7 +31,7 @@ public class CasaServices {
 		}
 		public Casa salvar(Casa casa) {
 			 
-			Casa casaNome = casaRepository.findByNomeCasa(casa.getNomeCasa());
+			List<Casa> casaNome = casaRepository.findByNomeCasaContaining(casa.getNomeCasa());
 			if(casaNome != null) {
 				throw new CasaExistenteException(" casa já existente");
 			}
@@ -92,9 +92,9 @@ public class CasaServices {
 			return casaRepository.findAll(Sort.by(Sort.Direction.DESC,"nomeCasa"));
 		}
 		
-		public Casa buscarPorNome(String nomeCasa) {
+		public List<Casa> buscarPorNome(String nomeCasa) {
 			
-			Casa casa = casaRepository.findByNomeCasa(nomeCasa);
+			List<Casa> casa = casaRepository.findByNomeCasaContaining(nomeCasa);
 			if(casa==null) {
 				throw new CasaShowNaoEncontradaException("a casa de show não foi encontrada.");
 			}

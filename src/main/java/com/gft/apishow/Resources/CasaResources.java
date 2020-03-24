@@ -94,7 +94,7 @@ public class CasaResources{
 		
 	@ApiOperation("Buscar casa por nome")
 	@GetMapping("/nome/{nomeCasa}")
-	public ResponseEntity<Casa>listarporCasaNome( @PathVariable("nomeCasa")String nomeCasa){
+	public ResponseEntity<List<Casa>> listarporCasaNome( @PathVariable("nomeCasa")String nomeCasa){
 		
 		return ResponseEntity.status(HttpStatus.OK).body(casaService.buscarPorNome(nomeCasa));
 		}

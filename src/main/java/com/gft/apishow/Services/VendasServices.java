@@ -3,6 +3,8 @@ package com.gft.apishow.Services;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -54,8 +56,6 @@ public class VendasServices {
 		buscar(vendas.getId());
 		
 	}
-
-	
 	
 	
 }
