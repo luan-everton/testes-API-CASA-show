@@ -31,7 +31,19 @@ public class Casa {
 	@OneToMany(mappedBy = "casa", cascade = CascadeType.ALL)
 	@JsonIgnore
     private List<Evento> evento;
-    
+	
+	
+	public Casa(@NotEmpty(message = "O campo nome não pode ser vazio.") String nome,
+			@NotEmpty(message = "O campo endereço não pode ser vazio.") String endereco) {
+		super();
+		this.nomeCasa = nome;
+		this.local = endereco;
+	}
+	
+	public Casa() {}
+
+	
+  
 	public List<Evento> getEvento() {
 		
 		return evento;
